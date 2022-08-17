@@ -13,10 +13,10 @@ import {
   Td,
   Text,
 } from "@chakra-ui/react";
-import { Header } from "../../Form/Header";
-import { Sidebar } from "../../Form/Sidebar";
+import Header from "../../components/Header";
+import { Sidebar } from "../../components/Form/Sidebar";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
-import { Pagination } from "../../Form/Pagination";
+import { Pagination } from "../../components/Form/Pagination";
 
 export default function UserList() {
   return (

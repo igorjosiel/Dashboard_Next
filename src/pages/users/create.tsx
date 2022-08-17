@@ -8,9 +8,9 @@ import {
   HStack,
   Button,
 } from "@chakra-ui/react";
-import { Header } from "../../Form/Header";
-import { Input } from "../../Form/Input";
-import { Sidebar } from "../../Form/Sidebar";
+import Header from "../../components/Header";
+import { Input } from "../../components/Form/Input";
+import { Sidebar } from "../../components/Form/Sidebar";
 
 export default function CreateUser() {
   return (
