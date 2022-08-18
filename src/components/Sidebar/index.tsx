@@ -3,7 +3,7 @@ import { RiDashboardLine, RiContactsLine, RiInputMethodLine, RiGitMergeLine } fr
 import NavLink from "./NavLink";
 import NavSection from "./NavSection";
 
-export function Sidebar() {
+export default function Sidebar() {
     return (
         <Box as="aside" w="64" mr="8">
             <Stack spacing="12" align="flex-start">
