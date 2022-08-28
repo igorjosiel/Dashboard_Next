@@ -1,35 +1,35 @@
-import { Box, Stack, Text, Link, Icon } from "@chakra-ui/react";
-import { RiDashboardLine, RiContactsLine, RiInputMethodLine, RiGitMergeLine } from "react-icons/ri";
-import NavLink from "./NavLink";
-import NavSection from "./NavSection";
+import { Box, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, useBreakpointValue } from "@chakra-ui/react";
+import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
+import SidebarNav from "./SideBarNav";
 
 export default function Sidebar() {
+    const { isOpen, onClose } = useSidebarDrawer();
+
+    const isDrawerSideBar = useBreakpointValue({
+        base: true,
+        lg: false,
+    });
+
+    if (isDrawerSideBar) {
+        return (
+            <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+                <DrawerOverlay>
+                    <DrawerContent bg="gray.800" p="4">
+                        <DrawerCloseButton mt="6" />
+                        <DrawerHeader>Navegação</DrawerHeader>
+
+                        <DrawerBody>
+                            <SidebarNav />
+                        </DrawerBody>
+                    </DrawerContent>
+                </DrawerOverlay>
+            </Drawer>
+        );
+    }
+
     return (
         <Box as="aside" w="64" mr="8">
-            <Stack spacing="12" align="flex-start">
-                <NavSection title="GERAL">
-                  <NavLink icon={RiDashboardLine} text={'Dashboard'} />
-                  <NavLink icon={RiContactsLine} text={'Usuários'} />
-                </NavSection>
-                <NavSection title="AUTOMAÇÂO">
-                  <NavLink icon={RiInputMethodLine} text={'Formulários'} />
-                  <NavLink icon={RiGitMergeLine} text={'Automação'} />
-                </NavSection>
-
-                <Box>
-                    <Text
-                        fontWeight="bold"
-                        color="gray.400"
-                        fontSize="small"
-                    >
-                        Automação
-                    </Text>
-
-                    <Stack spacing="4" mt="8" align="stretch">
-                        
-                    </Stack>
-                </Box>
-            </Stack>
+            <SidebarNav />
         </Box>
     );
 }
