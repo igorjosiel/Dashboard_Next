@@ -90,8 +90,8 @@ export default function CreateUser() {
               />
               <Input
                 name="password_confirmation"
-                type="email"
-                label="E-mail"
+                type="password"
+                label="Confirmar senha"
                 error={formState.errors.password_confirmation}
                 {...register('password_confirmation')}
               />
